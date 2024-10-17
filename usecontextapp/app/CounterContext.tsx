@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useContext, createContext } from "react";
 
-interface CounterContextType {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
-}
+// interface CounterContextType {
+//   count: number;
+//   increment: () => void;
+//   decrement: () => void;
+// }
 
 //Crreate the context
 const CounterContext = createContext<undefined | any>(undefined);
