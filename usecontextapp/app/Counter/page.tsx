@@ -25,6 +25,7 @@ const MyCounter = () => {
             buttonClicked ? theme.button : "bg-yellow-500"
           } px-5 rounded-md h-20 w-56`}
           onClick={onIncrement}
+          style={{}}
         >
           Icrement
         </button>

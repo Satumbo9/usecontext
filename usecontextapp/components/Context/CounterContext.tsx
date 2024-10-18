@@ -1,5 +1,11 @@
 "use client";
-import React, { useState, useContext, createContext } from "react";
+import React, {
+  useState,
+  useContext,
+  createContext,
+  cache,
+  useEffect,
+} from "react";
 
 interface counterType {
   count: number;
@@ -74,6 +80,10 @@ export const CounterProvider = ({
       }
     });
   };
+
+  //useEffect
+  useEffect(() => {  }, []);
+  useEffect(() => {}, [theme]);
 
   return (
     <CounterContext.Provider
