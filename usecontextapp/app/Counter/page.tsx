@@ -4,8 +4,14 @@ import { useCounter } from "@/components/Context/CounterContext";
 import { BiSolidBrightnessHalf } from "react-icons/bi";
 
 const MyCounter = () => {
-  const { onIncrement, theme, onDecrement, count, onThemeChange } =
-    useCounter();
+  const {
+    onIncrement,
+    theme,
+    buttonClicked,
+    onDecrement,
+    count,
+    onThemeChange,
+  } = useCounter();
 
   return (
     <div
@@ -15,19 +21,25 @@ const MyCounter = () => {
 
       <div className="flex gap-5">
         <button
-          className="text-4xl bg-sky-500 px-5 rounded-md h-20 w-56"
+          className={`text-4xl ${
+            buttonClicked ? theme.button : "bg-yellow-500"
+          } px-5 rounded-md h-20 w-56`}
           onClick={onIncrement}
         >
           Icrement
         </button>
         <button
-          className="text-4xl bg-sky-500 px-5 rounded-md h-20 w-56"
+          className={`text-4xl ${
+            buttonClicked ? theme.button : "bg-yellow-500"
+          } px-5 rounded-md h-20 w-56`}
           onClick={onDecrement}
         >
           Decrement
         </button>
         <button
-          className="text-4xl bg-sky-500 px-5 rounded-md h-20 w-56 flex items-center justify-center"
+          className={`text-4xl ${
+            buttonClicked ? theme.button : "bg-yellow-500"
+          } px-5 rounded-md h-20 w-56 flex items-center justify-center`}
           onClick={onThemeChange}
         >
           <BiSolidBrightnessHalf style={{ width: 50, height: 50 }} />

@@ -6,7 +6,9 @@ interface counterType {
   theme: {
     text: string;
     background: string;
+    button: string;
   };
+  buttonClicked: boolean;
   onIncrement: () => void;
   onDecrement: () => void;
   onThemeChange: () => void;
@@ -17,7 +19,9 @@ const defaultCounter = {
   theme: {
     text: "text-black",
     background: "bg-white",
+    button: "bg-sky-500",
   },
+  buttonClicked: false,
   onIncrement: () => {},
   onDecrement: () => {},
   onThemeChange: () => {},
@@ -37,7 +41,10 @@ export const CounterProvider = ({
   const [theme, setTheme] = useState({
     text: "",
     background: "",
+    button: "",
   });
+
+  const [buttonClicked, setbuttonClicked] = useState<boolean>(false);
 
   const onIncrement = () => {
     console.log("INCREMENT");
@@ -51,14 +58,18 @@ export const CounterProvider = ({
   const onThemeChange = () => {
     setTheme((prev) => {
       if (prev.background === "") {
+        setbuttonClicked(true);
         return {
           text: "text-white",
           background: "bg-black",
+          button: "bg-sky-500",
         };
       } else {
+        setbuttonClicked(false);
         return {
           text: "",
           background: "",
+          button: "",
         };
       }
     });
@@ -66,7 +77,14 @@ export const CounterProvider = ({
 
   return (
     <CounterContext.Provider
-      value={{ count, theme, onIncrement, onDecrement, onThemeChange }}
+      value={{
+        count,
+        theme,
+        buttonClicked,
+        onIncrement,
+        onDecrement,
+        onThemeChange,
+      }}
     >
       {children}
     </CounterContext.Provider>
