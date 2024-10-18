@@ -1,14 +1,11 @@
-import Image from "next/image";
-import CounterDisplay from "./CounterDisplay";
-import CounterControls from "./CounterControls";
-import { CounterProvider } from "./CounterContext";
+import { CounterProvider } from "@/components/Context/CounterContext";
+import MyCounter from "./Counter/page";
 
 export default function Home() {
   return (
     <div>
       <CounterProvider>
-        <CounterDisplay />
-        <CounterControls />
+        <MyCounter />
       </CounterProvider>
     </div>
   );
